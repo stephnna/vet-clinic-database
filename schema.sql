@@ -44,7 +44,7 @@ PRIMARY key(ID)
 );
 
 create table specialization(
-    species_id int ,
+    species_id int,
     vet_id int,
     PRIMARY key(species_id,vet_id),
     foreign key(species_id) references species(id),
