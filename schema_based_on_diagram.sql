@@ -40,9 +40,17 @@ name  VARCHAR(250)
 );
 
 CREATE TABLE medicalTreatments (
-    medical_histories_id int, 
-    treatment_id int,   
+    medical_histories_id int,
+    treatment_id int,
     PRIMARY key(medical_histories_id, treatment_id),
     foreign key(medical_histories_id) references medical_histories(id),
     foreign key(treatment_id) references treatments(id)
 );
+
+/* CREATE FK-INDEXES */
+CREATE INDEX ON medicalTreatments(medical_histories_id);
+CREATE INDEX ON medicalTreatments(treatment_id);
+CREATE INDEX ON invoice_items(invoice_id);
+CREATE INDEX ON invoice_items(treatment_id);
+CREATE INDEX ON invoices(medical_histories_id);
+CREATE INDEX ON medical_histories(patient_id);
